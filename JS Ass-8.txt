@@ -1,0 +1,150 @@
+Q.1  Whats React and its pros and cons?
+Ans- React is a popular JavaScript library used for building user interfaces. It was developed by Facebook and is widely adopted in the web development industry due to its flexibility, performance, and component-based architecture.
+
+Pros of React:
+
+Component-based architecture: React allows developers to build reusable UI components. These components encapsulate the HTML, CSS, and JavaScript logic, making it easier to manage and maintain code. Components can be composed and nested to create complex user interfaces.
+
+Virtual DOM: React utilizes a virtual DOM, a lightweight copy of the actual DOM, to efficiently update and render UI elements. The virtual DOM helps minimize the number of direct manipulations to the actual DOM, resulting in improved performance and faster rendering.
+
+Reusable code: React promotes code reusability, as components can be easily reused across different parts of an application. This helps save development time and effort and encourages a modular approach to building UI.
+
+Unidirectional data flow: React follows a unidirectional data flow, also known as one-way data binding. This makes it easier to understand and track changes in the application state, reducing the chances of bugs and making the codebase more maintainable.
+
+Large community and ecosystem: React has a thriving community of developers who actively contribute to the ecosystem by creating libraries, tools, and resources. This extensive ecosystem provides access to a wide range of third-party packages and solutions, making it easier to integrate React with other technologies.
+
+Cons of React:
+
+Learning curve: React has a learning curve, especially for developers who are new to JavaScript frameworks or libraries. It requires understanding concepts such as JSX (a syntax extension for JavaScript) and the component lifecycle.
+
+Boilerplate code: React, on its own, doesn't provide a complete solution for building applications. Developers often need to integrate additional libraries or tools for features like routing, state management, and form handling. This can lead to a certain amount of boilerplate code and configuration.
+
+Tooling complexity: React development often involves the use of various build tools, bundlers, and package managers, such as Webpack and Babel. Setting up the development environment and managing these tools can be challenging, especially for beginners.
+
+Rapid ecosystem changes: React's ecosystem is vibrant and evolving, which can sometimes result in frequent updates, breaking changes, or deprecated features. Staying up-to-date with the latest best practices and version compatibility can be a challenge.
+
+Performance concerns: While React itself is highly performant, inefficient usage or improper management of state and component updates can lead to performance issues. Careful consideration of performance optimizations, such as memoization and lazy loading, may be required in certain scenarios.
+
+Q.2 What do you understand by Virtual Dom?
+Ans- The Virtual DOM (Document Object Model) is a concept used in React and other JavaScript libraries/frameworks to improve the efficiency of updating and rendering user interfaces.
+
+The DOM is a representation of the HTML structure of a web page. It defines the structure and content of the page, and it can be accessed and manipulated using JavaScript. However, directly manipulating the DOM can be slow and resource-intensive, especially when dealing with large and complex web applications.
+
+To address this performance issue, React introduces the concept of the Virtual DOM. The Virtual DOM is a lightweight copy or abstraction of the actual DOM maintained by React. It is a JavaScript object that mirrors the structure and properties of the real DOM elements.
+
+When changes occur in a React application, such as updates to the application state or prop values, React doesn't immediately update the actual DOM. Instead, it first updates the Virtual DOM, which is faster and more efficient. React then compares the changes made to the Virtual DOM with the previous version of the Virtual DOM.
+
+React uses a diffing algorithm to identify the differences between the old and new versions of the Virtual DOM. This process, known as reconciliation, helps determine the minimal set of changes required to bring the actual DOM in sync with the updated Virtual DOM.
+
+Once the differences are identified, React selectively updates only the necessary parts of the actual DOM to reflect the changes. This targeted approach minimizes the number of manipulations performed on the real DOM, leading to improved performance.
+
+By leveraging the Virtual DOM, React optimizes the rendering process and reduces the overall overhead of updating the user interface. It allows developers to write declarative code and focus on describing the desired UI state, while React takes care of efficiently updating the DOM to match that state.
+
+Q.3 Difference between Virtual Dom vs Real Dom
+Ans- The main difference between the Virtual DOM and the real DOM (Document Object Model) lies in how they are structured and updated.
+
+Virtual DOM:
+
+Structure: The Virtual DOM is a lightweight copy or abstraction of the actual DOM. It is a JavaScript object that represents the structure and properties of the DOM elements.
+Manipulation: Changes to the Virtual DOM are fast and efficient since it is directly manipulated in memory.
+Update Process: When changes occur in a React application, React updates the Virtual DOM first. It then compares the changes made to the Virtual DOM with the previous version to determine the minimal set of changes needed to update the actual DOM.
+Rendering: The Virtual DOM is rendered in memory, and only the differences between the old and new versions are applied to the actual DOM, resulting in optimized rendering.
+Real DOM:
+
+Structure: The real DOM is the actual representation of the HTML structure of a web page. It is a hierarchical tree-like structure of DOM nodes.
+Manipulation: Directly manipulating the real DOM can be slow and resource-intensive, especially for large and complex web applications.
+Update Process: Changes made to the real DOM trigger immediate updates and can impact performance due to frequent reflows and repaints.
+Rendering: The real DOM is rendered on the browser, and any changes made to it result in re-rendering of the affected elements, which can be computationally expensive.
+
+Q.4 Whats component? Types of component?
+Ans- In React, components are at the core of the framework's architecture. React components are JavaScript functions or classes that return a piece of UI, representing a specific part of the user interface. Components can be composed and nested to create more complex UI structures.
+
+There are two types of components in React:
+
+Functional Components: Also known as stateless components or presentational components, functional components are defined as JavaScript functions. They accept props (properties) as input and return a piece of UI. Functional components are simpler and more lightweight, and they are primarily used for simple UI rendering or components that don't require internal state management or lifecycle methods.
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+Class Components: Class components are defined as ES6 classes that extend the React.Component class. They have additional features such as local state management and lifecycle methods. Class components allow for more complex logic and state management within the component.
+
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={() => this.increment()}>Increment</button>
+      </div>
+    );
+  }
+}
+
+Q.5 Difference between class & function based component
+Ans- The main difference between class-based components and function-based components in React lies in their syntax, capabilities, and usage.
+
+Class-based components:
+
+Syntax: Class-based components are defined as ES6 classes that extend the React.Component class. They use the class keyword and have a render() method that returns the component's UI. Class components can have state, lifecycle methods, and access to the this keyword.
+State management: Class components can manage local state using the state property. State allows components to store and update data that can affect the component's rendering. State updates trigger re-rendering of the component.
+Lifecycle methods: Class components have lifecycle methods, such as componentDidMount(), componentDidUpdate(), and componentWillUnmount(). These methods enable developers to perform actions at specific points in a component's lifecycle, such as fetching data, handling side effects, or cleaning up resources.
+Usage: Class components were the traditional way of creating components in React before the introduction of hooks. They are still widely used, especially for more complex components that require state management, lifecycle methods, or access to the this keyword.
+Function-based components:
+
+Syntax: Function-based components are defined as JavaScript functions. They are typically created using the arrow function syntax or the function keyword. Function components take props as input and return the component's UI structure as a JSX expression.
+State management: Function-based components do not have built-in state management. Before the introduction of hooks, they were considered stateless and used primarily for simple presentational components. However, with the introduction of hooks in React 16.8, function components can now manage state using hooks like useState(), useEffect(), and more.
+Simplicity and readability: Function-based components are generally simpler and easier to read and understand. They have a more concise syntax and are less verbose compared to class components, which can make them easier to work with and reason about.
+Usage: Function-based components have gained popularity with the introduction of hooks. They are now the recommended approach for creating most components in React due to their simplicity, improved performance, and the ability to handle state and lifecycle behavior using hooks.
+
+Q.6 Explain react component life cycle 
+Ans- n React, the component lifecycle refers to the series of phases that a component goes through from its initialization to its unmounting. These phases allow developers to hook into specific moments and perform actions or logic at different stages of a component's existence.
+
+The React component lifecycle can be divided into three main phases:
+
+Mounting:
+
+constructor(): This is the first method called when a component is being initialized. It is used to set up the initial state and bind event handlers.
+static getDerivedStateFromProps(): This method is invoked when the component is about to receive new props. It allows you to update the state based on the new props.
+render(): This method returns the JSX representation of the component's UI. It is called whenever the component needs to be rendered or re-rendered.
+componentDidMount(): This method is called once the component is mounted and rendered into the DOM. It is commonly used to perform side effects like data fetching or setting up subscriptions.
+Updating:
+
+static getDerivedStateFromProps(): Similar to the mounting phase, this method is called when the component is about to receive new props. It allows you to update the state based on the new props.
+shouldComponentUpdate(): This method determines if the component should re-render or not. It can be used to optimize performance by preventing unnecessary re-renders.
+render(): If the component is marked for an update, the render() method is called to generate the updated JSX representation.
+componentDidUpdate(): This method is called after the component has been updated and re-rendered. It is often used for side effects such as updating the DOM or making additional data requests.
+Unmounting:
+
+componentWillUnmount(): This method is called just before the component is unmounted and removed from the DOM. It allows for cleanup tasks such as canceling timers, clearing subscriptions, or removing event listeners.
+In addition to these lifecycle methods, React 16.3 introduced new lifecycle methods called "unsafe" lifecycle methods, which have been deprecated since React 16.3. They include methods like componentWillMount(), componentWillReceiveProps(), componentWillUpdate(), and componentWillUpdate(). It is recommended to use the new lifecycle methods or React Hooks instead.
+
+It's important to note that with the introduction of React Hooks, the class-based lifecycle methods are still supported, but function-based components can now use hooks like useEffect() and useLayoutEffect() to handle side effects and lifecycle behavior.
+
+Q.7 Explain Prop Drilling in React & Ways to avoid it
+Ans- Prop drilling, also known as "threading props" or "passing props down the component tree," refers to the process of passing props through multiple intermediate components to reach a deeply nested component that actually needs the props. It occurs when data needs to be passed from a parent component to a distant child component, even though the intermediate components do not require or use the data.
+
+Prop drilling can introduce unnecessary complexity, reduce code maintainability, and make it harder to understand the flow of data in the component hierarchy. It can also lead to performance issues if a large number of components need to pass the same props without using them.
+
+To avoid prop drilling in React, here are a few approaches:
+
+Use React Context: React Context allows you to create a "provider" component that wraps a subtree of components, providing a shared context to all the components within that subtree. This way, you can avoid passing props through intermediate components and directly access the required data in the distant child components.
+
+Use Redux or a State Management Library: State management libraries like Redux provide a centralized store that holds the application state. By connecting the required components to the store, you can access the required data without passing it through intermediate components. Redux uses a global store and provides a predictable state management solution.
+
+Use React Router's useParams() Hook: If you need to access URL parameters in deeply nested components, React Router provides a useParams() Hook that allows you to retrieve the parameters directly in the component without passing them as props.
+
+Component Composition: Instead of passing props through multiple intermediate components, you can consider restructuring your component hierarchy and creating a new component that wraps the intermediate components and provides the required props to the deeply nested component.
+
+Higher-Order Components (HOCs) or Render Props: HOCs or components that use render props pattern can be utilized to abstract away the need for prop drilling. They allow you to pass down only the necessary props to the child component, avoiding the need to pass the props through intermediate components manually.
+
+Use React Hooks: With the introduction of React Hooks, you can use hooks like useState() and useEffect() to manage state and side effects in functional components. Hooks allow you to avoid unnecessary prop drilling by keeping the relevant state and logic within the component that actually needs it.
+
